@@ -1,0 +1,3 @@
+[submodule "ontologyfiles"]
+	path = ontologyfiles
+	url = https://github.com/mrmechko/flaming-tyrion
