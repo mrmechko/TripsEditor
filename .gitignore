@@ -1,0 +1,14 @@
+
+# Created by https://www.gitignore.io/api/django,python3
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+
+#!! ERROR: python3 is undefined. Use list command to see defined gitignore types !!#

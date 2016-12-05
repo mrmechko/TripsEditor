@@ -56,7 +56,7 @@ ROOT_URLCONF = 'TripsEditor.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["OntologyViewer/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,5 +121,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-TripsXMLDir = BASE_DIR + '/ontologyfiles'
+TripsXMLDir = BASE_DIR + '/ontologyfiles/lexicon/data'
 
