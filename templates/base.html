@@ -1,8 +1,17 @@
-{% block extrascripts %}
-{% endblock %}
-
-
-base
-
-{% block content %}
-{% endblock %}
+<html>
+  <head>
+    {% block extrascripts %}
+    {% endblock %}
+  
+    {% block extracss %}
+    {% endblock %}
+  </head>
+  
+  <body>
+    {% block content %}
+    {% endblock %}
+    
+    {% block appjs %}
+    {% endblock %}
+  </body>
+</html>

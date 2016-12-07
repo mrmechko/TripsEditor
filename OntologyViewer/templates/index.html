@@ -2,9 +2,34 @@
 {% load static %}
 
 {% block extrascripts %}
-<script type="text/javascript" src="{% static "OntologyViewer/script.js"  %}"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
 {% endblock %}
 
 {% block content %}
-hello world
+{% verbatim %}
+  <div id='onttype'>
+    <input v-model="name">
+    <p>{{ node.name }}</p>
+    <p>{{ node.parent }}</p>
+    <p>Words:</p>
+    <ul>
+      <li v-for="word in node.words">
+        {{word}}
+      </li>
+    </ul>
+    <p>Wordnet:</p>
+    <ul>
+      <li v-for="word in node.wordnet">
+        {{word}}
+      </li>
+    </ul>
+  </div>
+{% endverbatim %}
+{% endblock %}
+
+
+{% block appjs %}
+  <script type="text/javascript" src="{% static "OntologyViewer/script.js"  %}"></script>
 {% endblock %}
