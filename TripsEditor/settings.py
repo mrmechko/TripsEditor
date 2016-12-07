@@ -121,7 +121,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "client", "js")
+        os.path.join(BASE_DIR, "client", "js"),
+        os.path.join(BASE_DIR, "client", "css"),
+        os.path.join(BASE_DIR, "client", "fonts")
         ]
 
 TripsXMLDir = BASE_DIR + '/ontologyfiles/lexicon/data'

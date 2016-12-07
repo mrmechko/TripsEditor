@@ -8,28 +8,22 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
 {% verbatim %}
   <div id='onttype'>
     <input v-model="name">
-    <p>{{ node.name }}</p>
-    <p>{{ node.parent }}</p>
-    <p>Words:</p>
-    <ul>
-      <li v-for="word in node.words">
-        {{word}}
-      </li>
-    </ul>
-    <p>Wordnet:</p>
-    <ul>
-      <li v-for="word in node.wordnet">
-        {{word}}
-      </li>
-    </ul>
+    <ontnode :node="node"></ontnode>
+  </div>
+  <div id='wordlookup'>
+    <input v-model='word'>
+    <ontlist :elements='wnlist' label='wordnet'></ontlist>
+    <ontlist :elements='lexlist' label='lexicon'></ontlist>
   </div>
 {% endverbatim %}
+</div>
 {% endblock %}
 
 
 {% block appjs %}
-  <script type="text/javascript" src="{% static "OntologyViewer/script.js"  %}"></script>
+  <script type="text/javascript" src="{% static "OntologyViewer/script.js" %}"></script>
 {% endblock %}

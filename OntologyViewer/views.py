@@ -21,7 +21,8 @@ class OnttypeEncoder(DjangoJSONEncoder):
                 'parent': obj.parent,
                 'weight': obj.weight,
                 'wordnet': obj.wordnet,
-                'words': obj.words
+                'words': obj.words,
+                'children': obj.children
             }
         return super(OnttypeEncoder, self).default(obj)
 
