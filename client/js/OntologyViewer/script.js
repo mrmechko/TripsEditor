@@ -5,8 +5,8 @@ var current_onttypes = [];
 var messenger = new Vue()
 
 Vue.component("ontname", {
-  props: ["name"],
-  template: "<button type=\"button\" class=\"btn btn-default\" v-on:click='emitOntType(name)'>{{ name }}</button>",
+  props: ["name", "label"],
+  template: "<button type=\"button\" class=\"btn btn-default\" v-on:click='emitOntType(name)'>{{ label }}:{{ name }}</button>",
   methods: {
     emitOntType: function (t) {
       messenger.$emit('emitOntType', t)
@@ -47,8 +47,8 @@ Vue.component("ontnode", {
   props: ["node"],
   template: "\
   <div>\
-    <ontname :name='node.name'></ontname>\
-    <ontname :name='node.parent'></ontname>\
+    <ontname :name='node.name' label='name'></ontname>\
+    <ontname :name='node.parent' label='parent'></ontname>\
     <ontlist :elements='node.children' label='children'></ontlist>\
     <list :elements='node.words' label='words'></list>\
     <list :elements='node.wordnet' label='wordnet'></list>\

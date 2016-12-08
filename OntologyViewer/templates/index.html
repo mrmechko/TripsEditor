@@ -10,11 +10,13 @@
 {% block content %}
 <div class="container">
 {% verbatim %}
-  <div id='onttype'>
+  <div class='col-md-6' id='onttype'>
+    <h1>Ont types</h1>
     <input v-model="name">
     <ontnode :node="node"></ontnode>
   </div>
-  <div id='wordlookup'>
+  <div class='col-md-6' id='wordlookup'>
+    <h1>Word lookup</h1>
     <input v-model='word'>
     <ontlist :elements='wnlist' label='wordnet'></ontlist>
     <ontlist :elements='lexlist' label='lexicon'></ontlist>
