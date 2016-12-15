@@ -6,7 +6,7 @@ var messenger = new Vue()
 
 Vue.component("ontname", {
   props: ["name", "label"],
-  template: "<button type=\"button\" class=\"btn btn-default\" v-on:click='emitOntType(name)'>{{ label }}:{{ name }}</button>",
+  template: "<button type=\"button\" class=\"btn btn-default ontbutton\" v-on:click='emitOntType(name)'>{{ label }}:{{ name }}</button>",
   methods: {
     emitOntType: function (t) {
       messenger.$emit('emitOntType', t)
@@ -18,7 +18,7 @@ Vue.component("ontname", {
 Vue.component("list", {
   props: ["elements", "label"],
   template: "\
-  <div>\
+  <div class='wordlist'>\
   <p>{{label}}</p>\
   <ul>\
     <li v-for=\"element in elements\"> \
@@ -32,7 +32,7 @@ Vue.component("list", {
 Vue.component("ontlist", {
   props: ["elements", "label"],
   template: "\
-  <div>\
+  <div class='ontlist'>\
   <p>{{label}}</p>\
   <ul>\
     <li v-for=\"element in elements\"> \
@@ -46,7 +46,7 @@ Vue.component("ontlist", {
 Vue.component("ontnode", {
   props: ["node"],
   template: "\
-  <div>\
+  <div class='ontnode'>\
     <ontname :name='node.name' label='name'></ontname>\
     <ontname :name='node.parent' label='parent'></ontname>\
     <ontlist :elements='node.children' label='children'></ontlist>\
