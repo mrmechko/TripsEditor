@@ -1,0 +1,14 @@
+<div>
+  <h1>mapping {{ lemma }} to {{ ont_type }}</h1>
+</div>
+{% for m in mappings %}
+  <div>
+    sense: {{ m.sense }}
+  </div>
+  <div>
+    adds: {{ m.adds }}
+  </div>
+  <div>
+    confuses: {{ m.confuses }}
+  </div>
+{% endfor %}
