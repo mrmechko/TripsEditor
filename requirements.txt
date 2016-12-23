@@ -1,3 +1,4 @@
 simplejson
 django==1.10.1
 git+https://github.com/mrmechko/diesel-python
+django-cors-headers

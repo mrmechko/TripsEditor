@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "corsheaders",
     'OntologyViewer',
     'SenseList',
 ]
@@ -50,6 +51,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'TripsEditor.urls'
@@ -132,3 +135,6 @@ STATICFILES_DIRS = [
 
 TripsXMLDir = BASE_DIR + '/ontologyfiles/lexicon/data'
 
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000'
+)

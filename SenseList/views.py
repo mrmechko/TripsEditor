@@ -30,6 +30,7 @@ class WMCEncoder(DjangoJSONEncoder):
 
 
 def get_one(request):
+    print(request.user)
     seed = WordMapCandidate.objects.all().filter(proposal__solved=False).order_by('?').first()
     prop = seed.proposal
     candidates = WordMapCandidate.objects.filter(proposal=prop)
