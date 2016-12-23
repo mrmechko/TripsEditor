@@ -2,11 +2,6 @@ from xml.etree import ElementTree as ET
 from diesel import ontology
 from nltk.corpus import wordnet as wn
 
-def get_vector(word):
-    return vecmodel(word).vector
-
-def avg(lst):
-    return sum(lst)/len(lst)
 
 class WordMap:
     def __init__(self):
@@ -91,51 +86,6 @@ class Entry:
         target = data['Word'].lower()
         return cls(data_id, ont_type, words, target, ont)
 
-    def get_possible_wordnet_mappings(self):
-        """
-        Get keys for word
-        for each key in the hierarchy until another ont-type recieves an explicit
-        mapping, return the key and all the words it would add to the ont node.
-        Use WCD to order words
-        """
-        syns = wn.synsets(self.target)
-        added = [self.get(syn) for syn in syns]
-        res = {}
-        for r in added:
-            for key in r:
-                if key in res:
-                    res[key].update(r[key])
-                else:
-                    res[key] = r[key]
-        return res
-
-    def get_mappings(self):
-        mappings = self.get_possible_wordnet_mappings()
-        return [WordnetMapping(self.onttype, m, mappings[m], self.target)
-                    for m in mappings]
-
-    def get(self, syn, words=None, seen=None):
-        if words is None:
-            words = set()
-        if seen is None:
-            seen = set()
-        results = self.ont.get_wordnet(syn, max_depth=1)
-
-        seen.add(syn)
-
-        words.update([str(lemma.name()) for lemma in syn.lemmas()])
-        if results:
-            return {syn: set([w for w in words])}
-        up = [s for s in syn.hypernyms() if s not in seen]
-        added = [self.get(y, set([w for w in words]), set([s for s in seen])) for y in up]
-        res = {syn: set([w for w in words])}
-        for r in added:
-            for key in r:
-                if key in res:
-                    res[key].update(r[key])
-                else:
-                    res[key] = r[key]
-        return res
 
 def readtable(fname):
     table = ET.parse(fname).getroot()
@@ -152,10 +102,6 @@ def load_entries(fname):
     return set([Entry.load_from_tr(r, ont) for r in readtable(fname)])
 
 
-def load_mappings():
-    entries = load_entries("table.html")
+def load_mappings(filename):
+    entries = load_entries(filename)
     return [e.get_mappings() for e in entries]
-
-
-if __name__ == '__main__':
-    test()
