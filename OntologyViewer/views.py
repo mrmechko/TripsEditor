@@ -9,9 +9,6 @@ from django.core.serializers.json import DjangoJSONEncoder
 
 ont = ontology.load_ontology(TripsXMLDir)
 
-def index(request):
-    return render(request, "index.html", {})
-
 
 class OnttypeEncoder(DjangoJSONEncoder):
     def default(self, obj):

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../css/App.css';
 
 import {Chip, Card, CardTitle, CardText, Button, Icon} from 'react-mdl'
 

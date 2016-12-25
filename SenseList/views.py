@@ -39,6 +39,3 @@ def get_one(request):
         "proposal": prop,
         "candidates": [c for c in candidates]
     }, safe=False, encoder=WMCEncoder)
-
-def index(request):
-    return render(request, 'display.html')

@@ -3,8 +3,6 @@ import { Link } from 'react-router';
 import {Grid, Cell, Layout, Header, Navigation, Drawer, Content} from 'react-mdl';
 
 
-import '../css/App.css';
-
 
 
 class RootApp extends Component {

@@ -6,10 +6,7 @@ import RootApp from './modules/root';
 import ProposalViewer from './modules/proposal';
 import OntLookup from './modules/ontlookup';
 
-import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
-
-import './css/index.css';
 
 ReactDOM.render((
   <Router history={hashHistory}>

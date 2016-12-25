@@ -128,9 +128,8 @@ LOGIN_REDIRECT_URL = "/mapper/index/"
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, "client", "js"),
-        os.path.join(BASE_DIR, "client", "css"),
-        os.path.join(BASE_DIR, "client", "fonts")
+        os.path.join(BASE_DIR, "frontend", "build"),
+        os.path.join(BASE_DIR, "frontend", "public"),
         ]
 
 TripsXMLDir = BASE_DIR + '/ontologyfiles/lexicon/data'
