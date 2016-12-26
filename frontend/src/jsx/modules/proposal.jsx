@@ -59,7 +59,7 @@ class ProposalViewer extends Component {
   }
 
   getData() {
-    axios.get('http://localhost:8000/mapper/next/')
+    axios.get('/mapper/next/')
         .then(res => {
           const proposal = res.data.proposal;
           const candidates = res.data.candidates;

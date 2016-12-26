@@ -25,7 +25,7 @@ def index(request):
     return render(request, 'index.html')
 
 urlpatterns = [
-    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^login/$', auth_views.login, {'template_name':"index.html"}, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^admin/', admin.site.urls),
